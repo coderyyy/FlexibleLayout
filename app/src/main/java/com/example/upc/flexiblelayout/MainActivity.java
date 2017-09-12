@@ -3,6 +3,7 @@ package com.example.upc.flexiblelayout;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.example.flexible.FlexibleLayout;
 
@@ -20,20 +21,20 @@ public class MainActivity extends AppCompatActivity {
 
     private void initView() {
         final LinearLayout topLy = (LinearLayout) findViewById(R.id.toggle_top);
-        final LinearLayout midLy = (LinearLayout) findViewById(R.id.toggle_mid);
-        final LinearLayout bottomLy = (LinearLayout) findViewById(R.id.toggle_bottom);
+        final RelativeLayout midLy = (RelativeLayout) findViewById(R.id.toggle_mid);
+        final RelativeLayout bottomLy = (RelativeLayout) findViewById(R.id.toggle_bottom);
 
         flexibleLayout = (FlexibleLayout) findViewById(R.id.toggle);
 
         flexibleLayout.post(new Runnable() {
             @Override
             public void run() {
-                flexibleLayout.setToClose();
                 flexibleLayout.setAllowOpen(true);
                 flexibleLayout.setAllowExtend(true);
                 flexibleLayout.setCloseOffset(topLy.getHeight());
                 flexibleLayout.setOpenOffset(topLy.getHeight() + midLy.getHeight());
                 flexibleLayout.setExtendOffset(topLy.getHeight() + midLy.getHeight() + bottomLy.getHeight());
+                flexibleLayout.setToClose();
                 flexibleLayout.getBackground().setAlpha(0);// 设置为透明色
                 flexibleLayout.setOnScrollListener(mOnScrollListener);
             }

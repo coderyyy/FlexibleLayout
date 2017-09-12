@@ -1,23 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.example.flexible.FlexibleLayout
         android:id="@+id/toggle"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000">
+        android:background="#000000"
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/toggle_top"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal">
+            android:background="#3399ff"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
             <View
                 android:layout_width="50dp"
                 android:layout_height="1dp"
+                android:layout_marginTop="5dp"
                 android:background="@android:color/darker_gray" />
 
             <View
@@ -29,39 +34,44 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
+                android:padding="10dp"
                 android:text="我是顶层" />
 
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/toggle_mid"
             android:layout_width="match_parent"
-            android:layout_height="100dp">
+            android:layout_height="100dp"
+            android:background="#ff0000">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="我是中间层" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:id="@+id/toggle_bottom"
             android:layout_width="match_parent"
-            android:layout_height="150dp">
+            android:layout_height="150dp"
+            android:background="#00ff00">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
                 android:text="我是底层" />
 
-        </LinearLayout>
+        </RelativeLayout>
 
     </com.example.flexible.FlexibleLayout>
 </LinearLayout>
