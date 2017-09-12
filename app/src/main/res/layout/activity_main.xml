@@ -11,18 +11,23 @@
         android:background="#000000"
         android:orientation="vertical">
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#A1A1A1" />
+
         <LinearLayout
             android:id="@+id/toggle_top"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#3399ff"
+            android:layout_height="100dp"
+            android:background="#FFFFFF"
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <View
                 android:layout_width="50dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="15dp"
                 android:background="@android:color/darker_gray" />
 
             <View
@@ -32,44 +37,68 @@
                 android:background="@android:color/darker_gray" />
 
             <TextView
+                android:id="@+id/toggle_top_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:background="@drawable/text_corner_click_bg"
                 android:gravity="center"
                 android:padding="10dp"
-                android:text="我是顶层" />
+                android:text="我是顶层"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#A1A1A1" />
 
         <RelativeLayout
             android:id="@+id/toggle_mid"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:background="#ff0000">
+            android:layout_height="150dp"
+            android:background="#FFFFFF">
 
             <TextView
+                android:id="@+id/toggle_mid_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center_horizontal"
+                android:background="@drawable/text_corner_click_bg"
                 android:gravity="center"
-                android:text="我是中间层" />
+                android:padding="10dp"
+                android:text="我是中间层"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#A1A1A1" />
 
         <RelativeLayout
             android:id="@+id/toggle_bottom"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:background="#00ff00">
+            android:layout_height="200dp"
+            android:background="#FFFFFF">
 
             <TextView
+                android:id="@+id/toggle_bottom_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:layout_gravity="center_horizontal"
+                android:background="@drawable/text_corner_click_bg"
                 android:gravity="center"
-                android:text="我是底层" />
+                android:padding="10dp"
+                android:text="我是底层"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
         </RelativeLayout>
 
