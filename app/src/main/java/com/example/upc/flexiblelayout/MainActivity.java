@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private FlexibleLayout.OnScrollListener mOnScrollListener = new FlexibleLayout.OnScrollListener() {
         @Override
         public void onScrollProgressChanged(float currProgress) {
-
+            System.out.println("progress : " + currProgress);
         }
 
         @Override

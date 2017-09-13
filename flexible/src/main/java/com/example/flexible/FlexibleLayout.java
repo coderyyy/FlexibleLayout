@@ -40,6 +40,11 @@ public class FlexibleLayout extends LinearLayout {
     private boolean isAllowOpen = false;
     private boolean isAllowExtend = false;
 
+    /**
+     * FlexibleLayout上层需要额外移动的高度（如：Title、StatusBar、浮于FlexibleLayout之上的布局）
+     *
+     * @param extra 需要额外移动的高度
+     */
     public void setExtraContentHeight(int extra) {
         extraContentHeight = extra;
     }
@@ -90,6 +95,7 @@ public class FlexibleLayout extends LinearLayout {
         @Override
         public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
             if (velocityY > FLING_VELOCITY_SLOP) {
+
                 if (lastStatus.equals(Status.OPEN) && -getScrollY() > openOffset) {
                     scrollToClose();
                 } else if (lastStatus.equals(Status.EXTEND) && -getScrollY() > extendOffset) {
@@ -97,14 +103,17 @@ public class FlexibleLayout extends LinearLayout {
                 }
 
                 return true;
+
             } else if (velocityY < FLING_VELOCITY_SLOP && getScrollY() <= -openOffset) {
+
                 scrollToOpen();
-
                 return true;
+
             } else if (velocityY < FLING_VELOCITY_SLOP && getScrollY() > -openOffset) {
-                scrollToExtend();
 
+                scrollToExtend();
                 return true;
+
             }
 
             return false;
@@ -130,6 +139,7 @@ public class FlexibleLayout extends LinearLayout {
 
         scroller.startScroll(0, getScrollY(), 0, dy, duration);
         lastStatus = Status.EXTEND;
+
         invalidate();
     }
 
@@ -152,6 +162,7 @@ public class FlexibleLayout extends LinearLayout {
 
         scroller.startScroll(0, getScrollY(), 0, dy, duration);
         lastStatus = Status.OPEN;
+
         invalidate();
     }
 
@@ -172,6 +183,7 @@ public class FlexibleLayout extends LinearLayout {
 
         scroller.startScroll(0, getScrollY(), 0, dy, duration);
         lastStatus = Status.CLOSE;
+
         invalidate();
     }
 
@@ -258,8 +270,8 @@ public class FlexibleLayout extends LinearLayout {
                 return true;
             case MotionEvent.ACTION_UP:
             case MotionEvent.ACTION_CANCEL:
-                if (getScrollY() <0
-                        && Math.abs(Math.abs(getScrollY()) - Math.abs(extendOffset)) <= TOUCH_SLOP){
+                if (getScrollY() < 0
+                        && Math.abs(Math.abs(getScrollY()) - Math.abs(extendOffset)) <= TOUCH_SLOP) {
                     lastStatus = Status.EXTEND;
                 }
 
